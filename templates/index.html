@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Intensity Predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%; /* Full height for html and body */
+            margin: 0; /* Remove default margin */
+        }
+        body {
+            background-color: #4B0082;  /* Medium-dark color (Indigo) */
+            background-image: url('{{ url_for('static', filename='carbon_bg.png') }}');  /* Background image */
+            background-size: cover; /* Cover the entire screen */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            color: #f0f0f0;  /* Light text color for better contrast */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #0056b3;  /* Darker blue for the title */
+        }
+        label {
+            color: black;  /* Black color for labels */
+            font-weight: bold;  /* Bold font weight for labels */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Carbon Intensity Predictor</h1>
+        <form action="/predict" method="POST" class="form-group">
+            <label for="carbon_intensity">Carbon Intensity (gCO2/kWh):</label>
+            <input type="text" name="carbon_intensity" class="form-control" required>
+
+            <label for="energy_consumption" class="mt-2">Energy Consumption (kWh):</label>
+            <input type="text" name="energy_consumption" class="form-control" required>
+
+            <button type="submit" class="btn btn-primary mt-3 w-100">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
